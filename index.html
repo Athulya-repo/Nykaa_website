@@ -1,0 +1,1245 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nykaa Beauty Store</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        /* TOP BAR */
+
+        .topbar {
+            background: coral;
+            color: white;
+            padding: 12px 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 18px;
+            border-bottom: 1px solid lightgray;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 38px;
+            color: deeppink;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .search {
+            padding: 14px;
+            width: 250px;
+            background: whitesmoke;
+            border: 1px solid lightgray;
+            border-radius: 6px;
+        }
+
+        .signin {
+            background: deeppink;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* CATEGORY */
+
+        .category {
+            display: flex;
+            justify-content: space-evenly;
+            padding: 20px 10px;
+            flex-wrap: wrap;
+            gap: 15px;
+            color: dimgray;
+        }
+
+        .category span {
+            cursor: pointer;
+        }
+
+        .sale {
+            background: deeppink;
+            color: white;
+            padding: 7px 20px;
+            border-radius: 20px;
+        }
+
+        /* BIG BANNER CAROUSEL */
+
+        .big-carousel {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .big-track {
+            display: flex;
+            transition: 0.6s;
+        }
+
+        .big-slide {
+            min-width: 100%;
+        }
+
+        .big-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .big-arrow {
+            position: absolute;
+            top: 45%;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 50%;
+            padding: 12px 18px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .big-left {
+            left: 15px;
+        }
+
+        .big-right {
+            right: 15px;
+        }
+
+        /* BANK OFFER CAROUSEL */
+
+        .offer {
+            margin: 25px 0;
+            border: 2px solid hotpink;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .offer-track {
+            display: flex;
+            transition: 0.5s;
+        }
+
+        .offer-card {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 25px 60px;
+            min-height: 130px;
+        }
+
+        .bank {
+            min-width: 220px;
+            border-right: 2px solid gray;
+            padding: 10px;
+        }
+
+        .bank h2 {
+            background: darkred;
+            color: white;
+            padding: 12px;
+            display: inline-block;
+        }
+
+        .offer-text {
+            font-size: 23px;
+        }
+
+        .offer-arrow {
+            position: absolute;
+            top: 35%;
+            background: white;
+            border: 1px solid lightgray;
+            border-radius: 50%;
+            padding: 8px 15px;
+            font-size: 25px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .offer-left {
+            left: 5px;
+        }
+
+        .offer-right {
+            right: 5px;
+        }
+
+        /* HEADINGS */
+
+        .heading {
+            text-align: center;
+            margin: 45px 0 25px;
+            font-size: 30px;
+        }
+
+        /* CATEGORY CIRCLES */
+
+        .round-products {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .round-products img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .round-products p {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* SMALL PRODUCT CAROUSEL */
+
+        .small-carousel {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 45px;
+        }
+
+        .small-viewport {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .small-track {
+            display: flex;
+            gap: 20px;
+            transition: 0.5s;
+        }
+
+        .small-card {
+            flex: 0 0 220px;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 18px;
+            background: white;
+        }
+
+        .small-card:hover {
+            box-shadow: 0 5px 15px lightgray;
+            transform: translateY(-4px);
+        }
+
+        .small-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .small-card h3 {
+            margin: 13px 5px;
+            font-size: 17px;
+        }
+
+        .small-card p {
+            color: gray;
+            margin: 8px;
+        }
+
+        .small-card .price {
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .small-card button {
+            background: deeppink;
+            color: white;
+            border: none;
+            padding: 11px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .small-card button:hover {
+            background: crimson;
+        }
+
+        .small-arrow {
+            position: absolute;
+            top: 40%;
+            background: white;
+            border: 1px solid lightgray;
+            border-radius: 50%;
+            padding: 10px 15px;
+            font-size: 23px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .small-left {
+            left: 5px;
+        }
+
+        .small-right {
+            right: 5px;
+        }
+
+        /* PROMOTION */
+
+        .promotion {
+            background: pink;
+            text-align: center;
+            padding: 45px;
+            margin: 30px 0;
+            color: darkred;
+        }
+
+        .promotion h1 {
+            font-size: 38px;
+        }
+
+        .promotion p {
+            margin: 15px;
+            font-size: 20px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: black;
+            color: white;
+            padding: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .footer-content h3 {
+            color: hotpink;
+            margin-bottom: 15px;
+        }
+
+        .footer-content p {
+            margin: 10px 0;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid gray;
+            padding-top: 20px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 768px) {
+
+            .topbar {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .navbar {
+                justify-content: center;
+            }
+
+            .navbar a {
+                font-size: 13px;
+                margin: 5px;
+            }
+
+            .search {
+                width: 90%;
+            }
+
+            .category {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .offer-card {
+                padding: 20px 40px;
+                gap: 10px;
+            }
+
+            .bank {
+                min-width: 100px;
+            }
+
+            .bank h2 {
+                font-size: 12px;
+            }
+
+            .offer-text {
+                font-size: 14px;
+            }
+
+            .small-card {
+                flex-basis: 160px;
+            }
+
+            .small-card img {
+                height: 150px;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .round-products img {
+                width: 90px;
+                height: 90px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+
+    <div class="topbar">
+
+        <b>Nykaa's Diwali Dhamaka Sale Is Now Live!</b>
+
+        <span>
+            Get App &nbsp; | &nbsp;
+            Store & Events &nbsp; | &nbsp;
+            Gift Card &nbsp; | &nbsp;
+            Help
+        </span>
+
+    </div>
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo">NYKAA</div>
+
+        <div>
+            <a href="#">Categories</a>
+            <a href="#">Brands</a>
+            <a href="#">Luxe</a>
+            <a href="#">Nykaa Fashion</a>
+            <a href="#">Beauty Advice</a>
+        </div>
+
+        <input type="text" class="search"
+        placeholder="Search on Nykaa">
+
+        <button class="signin">Sign in</button>
+
+        <span style="font-size:25px;">♧</span>
+
+    </div>
+
+    <!-- CATEGORY -->
+
+    <div class="category">
+
+        <span>Makeup</span>
+        <span>Skin</span>
+        <span>Hair</span>
+        <span>Appliances</span>
+        <span>Bath & Body</span>
+        <span>Natural</span>
+        <span>Mom & Baby</span>
+        <span>Health & Wellness</span>
+        <span>Men</span>
+        <span>Fragrance</span>
+        <span>Fashion Selects</span>
+        <span class="sale">SALE</span>
+
+    </div>
+
+    <!-- BIG BANNER CAROUSEL -->
+
+    <div class="big-carousel">
+
+        <div class="big-track" id="bigTrack">
+
+            <div class="big-slide">
+                <img src="img/img2.jpg"
+                alt="Nykaa Diwali Sale">
+            </div>
+
+           
+
+        </div>
+
+        <button class="big-arrow big-left"
+        onclick="bigPrevious()">&#8249;</button>
+
+        <button class="big-arrow big-right"
+        onclick="bigNext()">&#8250;</button>
+
+    </div>
+
+    <!-- BANK OFFER CAROUSEL -->
+
+    <div class="offer">
+
+        <button class="offer-arrow offer-left"
+        onclick="offerPrevious()">&#8249;</button>
+
+        <div class="offer-track" id="offerTrack">
+
+            <div class="offer-card">
+
+                <div class="bank">
+                    <h2>IDFC FIRST<br>Bank</h2>
+                    <p>ALWAYS YOU FIRST</p>
+                </div>
+
+                <div class="offer-text">
+                    Extra 10% Off Up To ₹500 On Orders Above ₹3000
+                    Only On <b>IDFC First Bank SWYP Credit Card</b>
+                </div>
+
+            </div>
+
+            <div class="offer-card">
+
+                <div class="bank">
+                    <h2>HDFC BANK</h2>
+                    <p>WELCOME OFFER</p>
+                </div>
+
+                <div class="offer-text">
+                    Get Extra Discounts On Selected Products
+                    With <b>HDFC Bank Cards</b>
+                </div>
+
+            </div>
+
+            <div class="offer-card">
+
+                <div class="bank">
+                    <h2>AXIS BANK</h2>
+                    <p>SPECIAL OFFER</p>
+                </div>
+
+                <div class="offer-text">
+                    Shop Your Favourite Products And Enjoy
+                    <b>Special Discounts!</b>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="offer-arrow offer-right"
+        onclick="offerNext()">&#8250;</button>
+
+    </div>
+
+    <!-- SHOP BY CATEGORY -->
+
+    <h2 class="heading">SHOP BY CATEGORY</h2>
+
+    <div class="round-products">
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300">
+            <p>Makeup</p>
+        </div>
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=300">
+            <p>Skincare</p>
+        </div>
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300">
+            <p>Haircare</p>
+        </div>
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?w=300">
+            <p>Fragrance</p>
+        </div>
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=300">
+            <p>Body Care</p>
+        </div>
+
+    </div>
+
+    <!-- TRENDING PRODUCTS CAROUSEL -->
+
+    <h2 class="heading">TRENDING BEAUTY PRODUCTS</h2>
+
+    <div class="small-carousel">
+
+        <button class="small-arrow small-left"
+        onclick="smallPrevious('trendTrack')">&#8249;</button>
+
+        <div class="small-viewport">
+
+            <div class="small-track" id="trendTrack">
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400">
+                    <h3>Lipstick</h3>
+                    <p>Matte Finish Lipstick</p>
+                    <p class="price">₹499</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=400">
+                    <h3>Face Serum</h3>
+                    <p>Skin Care Serum</p>
+                    <p class="price">₹599</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400">
+                    <h3>Perfume</h3>
+                    <p>Luxury Fragrance</p>
+                    <p class="price">₹999</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400">
+                    <h3>Makeup Kit</h3>
+                    <p>Beauty Collection</p>
+                    <p class="price">₹899</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400">
+                    <h3>Skin Cream</h3>
+                    <p>Daily Moisturizer</p>
+                    <p class="price">₹399</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400">
+                    <h3>Face Care</h3>
+                    <p>Beauty Essentials</p>
+                    <p class="price">₹450</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400">
+                    <h3>Beauty Palette</h3>
+                    <p>Makeup Collection</p>
+                    <p class="price">₹699</p>
+                    <button>Add to Bag</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="small-arrow small-right"
+        onclick="smallNext('trendTrack')">&#8250;</button>
+
+    </div>
+
+    <!-- MAKEUP PRODUCTS CAROUSEL -->
+
+    <h2 class="heading">BEST IN MAKEUP</h2>
+
+    <div class="small-carousel">
+
+        <button class="small-arrow small-left"
+        onclick="smallPrevious('makeupTrack')">&#8249;</button>
+
+        <div class="small-viewport">
+
+            <div class="small-track" id="makeupTrack">
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400">
+                    <h3>Matte Lipstick</h3>
+                    <p>Long Lasting</p>
+                    <p class="price">₹499</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400">
+                    <h3>Makeup Kit</h3>
+                    <p>Complete Makeup Set</p>
+                    <p class="price">₹999</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400">
+                    <h3>Beauty Palette</h3>
+                    <p>Eyeshadow Collection</p>
+                    <p class="price">₹699</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="img/img5.img">
+                    <h3>Foundation</h3>
+                    <p>Liquid Foundation</p>
+                    <p class="price">₹799</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=400">
+                    <h3>Mascara</h3>
+                    <p>Eye Makeup</p>
+                    <p class="price">₹349</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="img/img6.img">
+                    <h3>Blush</h3>
+                    <p>Pink Blush</p>
+                    <p class="price">₹449</p>
+                    <button>Add to Bag</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="small-arrow small-right"
+        onclick="smallNext('makeupTrack')">&#8250;</button>
+
+    </div>
+
+    <!-- SALE BANNER -->
+
+    <div class="promotion">
+
+        <h1>NYKAA BEAUTY SALE</h1>
+        <p>Discover Your Favourite Beauty Products</p>
+        <h2>UP TO 60% OFF</h2>
+
+    </div>
+
+    <!-- SKINCARE CAROUSEL -->
+
+    <h2 class="heading">SKINCARE PRODUCTS</h2>
+
+    <div class="small-carousel">
+
+        <button class="small-arrow small-left"
+        onclick="smallPrevious('skinTrack')">&#8249;</button>
+
+        <div class="small-viewport">
+
+            <div class="small-track" id="skinTrack">
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400">
+                    <h3>Face Cream</h3>
+                    <p>Daily Moisturizer</p>
+                    <p class="price">₹399</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=400">
+                    <h3>Skin Serum</h3>
+                    <p>Face Serum</p>
+                    <p class="price">₹599</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400">
+                    <h3>Face Care</h3>
+                    <p>Skin Care Essentials</p>
+                    <p class="price">₹499</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400">
+                    <h3>Face Wash</h3>
+                    <p>Gentle Cleanser</p>
+                    <p class="price">₹249</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=400">
+                    <h3>Body Lotion</h3>
+                    <p>Hydrating Lotion</p>
+                    <p class="price">₹299</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400">
+                    <h3>Skin Care Kit</h3>
+                    <p>Beauty Care Set</p>
+                    <p class="price">₹899</p>
+                    <button>Add to Bag</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="small-arrow small-right"
+        onclick="smallNext('skinTrack')">&#8250;</button>
+
+    </div>
+
+    <!-- HAIR CARE CAROUSEL -->
+
+    <h2 class="heading">HAIR CARE PRODUCTS</h2>
+
+    <div class="small-carousel">
+
+        <button class="small-arrow small-left"
+        onclick="smallPrevious('hairTrack')">&#8249;</button>
+
+        <div class="small-viewport">
+
+            <div class="small-track" id="hairTrack">
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=400">
+                    <h3>Shampoo</h3>
+                    <p>Hair Cleaning Shampoo</p>
+                    <p class="price">₹299</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400">
+                    <h3>Hair Oil</h3>
+                    <p>Hair Care Oil</p>
+                    <p class="price">₹250</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400">
+                    <h3>Conditioner</h3>
+                    <p>Hair Conditioner</p>
+                    <p class="price">₹350</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?w=400">
+                    <h3>Hair Serum</h3>
+                    <p>Hair Styling Serum</p>
+                    <p class="price">₹450</p>
+                    <button>Add to Bag</button>
+                </div>
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?w=400">
+                    <h3>Hair Serum</h3>
+                    <p>Hair Styling Serum</p>
+                    <p class="price">₹500</p>
+                    <button>Add to Bag</button>
+                </div>
+                <div class="small-card">
+                    <img src="img/imgh4.img">
+                    <h3>Hair Serum</h3>
+                    <p>Hair Styling Serum</p>
+                    <p class="price">₹380</p>
+                    <button>Add to Bag</button>
+                </div>
+                <div class="small-card">
+                    <img src="img/imgh1.jpg">
+                    <h3>Hair Serum</h3>
+                    <p>Hair Styling Serum</p>
+                    <p class="price">₹600</p>
+                    <button>Add to Bag</button>
+                </div>
+                <div class="small-card">
+                    <img src="img/imgh.jpg">
+                    <h3>Hair Serum</h3>
+                    <p>Hair Styling Serum</p>
+                    <p class="price">₹280</p>
+                    <button>Add to Bag</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="small-arrow small-right"
+        onclick="smallNext('hairTrack')">&#8250;</button>
+
+    </div>
+
+    <!-- PERFUME CAROUSEL -->
+
+    <h2 class="heading">FRAGRANCE & PERFUMES</h2>
+
+    <div class="small-carousel">
+
+        <button class="small-arrow small-left"
+        onclick="smallPrevious('perfumeTrack')">&#8249;</button>
+
+        <div class="small-viewport">
+
+            <div class="small-track" id="perfumeTrack">
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400">
+                    <h3>Women's Perfume</h3>
+                    <p>Floral Fragrance</p>
+                    <p class="price">₹999</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400">
+                    <h3>Luxury Perfume</h3>
+                    <p>Premium Fragrance</p>
+                    <p class="price">₹1499</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400">
+                    <h3>Body Mist</h3>
+                    <p>Fresh Fragrance</p>
+                    <p class="price">₹499</p>
+                    <button>Add to Bag</button>
+                </div>
+
+                <div class="small-card">
+                    <img src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=400">
+                    <h3>Premium Perfume</h3>
+                    <p>Elegant Fragrance</p>
+                    <p class="price">₹1299</p>
+                    <button>Add to Bag</button>
+                </div>
+                <div class="small-card">
+                    <img src="img/img7.jpg">
+                    <h3>Premium Perfume</h3>
+                    <p>Elegant Fragrance</p>
+                    <p class="price">₹1299</p>
+                    <button>Add to Bag</button>
+                </div>
+                <div class="small-card">
+                    <img src="img/img8.jpg">
+                    <h3>Premium Perfume</h3>
+                    <p>Elegant Fragrance</p>
+                    <p class="price">₹1299</p>
+                    <button>Add to Bag</button>
+                </div>
+                <div class="small-card">
+                    <img src="img/img9.jpg">
+                    <h3>Premium Perfume</h3>
+                    <p>Elegant Fragrance</p>
+                    <p class="price">₹1299</p>
+                    <button>Add to Bag</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="small-arrow small-right"
+        onclick="smallNext('perfumeTrack')">&#8250;</button>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                <h3>NYKAA</h3>
+                <p>About Us</p>
+                <p>Our Story</p>
+                <p>Careers</p>
+                <p>Contact Us</p>
+            </div>
+
+            <div>
+                <h3>HELP</h3>
+                <p>Shipping Information</p>
+                <p>Returns</p>
+                <p>FAQs</p>
+                <p>Order Tracking</p>
+            </div>
+
+            <div>
+                <h3>QUICK LINKS</h3>
+                <p>Makeup</p>
+                <p>Skincare</p>
+                <p>Haircare</p>
+                <p>Beauty Products</p>
+            </div>
+
+            <div>
+                <h3>FOLLOW US</h3>
+                <p>Instagram</p>
+                <p>Facebook</p>
+                <p>YouTube</p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            Copyright © Nykaa Beauty Store
+        </div>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* BIG BANNER CAROUSEL */
+
+        var bigCurrent = 0;
+
+        var bigTrack = document.getElementById("bigTrack");
+
+        var bigTotal = document.querySelectorAll(".big-slide").length;
+
+        function bigShow() {
+
+            bigTrack.style.transform =
+            "translateX(-" + (bigCurrent * 100) + "%)";
+
+        }
+
+        function bigNext() {
+
+            bigCurrent++;
+
+            if(bigCurrent >= bigTotal) {
+                bigCurrent = 0;
+            }
+
+            bigShow();
+
+        }
+
+        function bigPrevious() {
+
+            bigCurrent--;
+
+            if(bigCurrent < 0) {
+                bigCurrent = bigTotal - 1;
+            }
+
+            bigShow();
+
+        }
+
+
+        /* BANK OFFER CAROUSEL */
+
+        var offerCurrent = 0;
+
+        var offerTrack = document.getElementById("offerTrack");
+
+        var offerTotal = document.querySelectorAll(".offer-card").length;
+
+        function offerShow() {
+
+            offerTrack.style.transform =
+            "translateX(-" + (offerCurrent * 100) + "%)";
+
+        }
+
+        function offerNext() {
+
+            offerCurrent++;
+
+            if(offerCurrent >= offerTotal) {
+                offerCurrent = 0;
+            }
+
+            offerShow();
+
+        }
+
+        function offerPrevious() {
+
+            offerCurrent--;
+
+            if(offerCurrent < 0) {
+                offerCurrent = offerTotal - 1;
+            }
+
+            offerShow();
+
+        }
+
+
+        /* SMALL PRODUCT CAROUSEL */
+
+        var positions = {};
+
+        function smallShow(id) {
+
+            var track = document.getElementById(id);
+
+            var carousel = track.closest(".small-carousel");
+
+            var cards = track.querySelectorAll(".small-card");
+
+            var cardWidth = cards[0].offsetWidth;
+
+            var gap = 20;
+
+            var visible = Math.max(1,
+                Math.floor(
+                    (carousel.querySelector(".small-viewport").clientWidth + gap)
+                    / (cardWidth + gap)
+                )
+            );
+
+            var max = Math.max(0, cards.length - visible);
+
+            if(positions[id] === undefined) {
+                positions[id] = 0;
+            }
+
+            if(positions[id] > max) {
+                positions[id] = max;
+            }
+
+            track.style.transform =
+            "translateX(-" +
+            (positions[id] * (cardWidth + gap)) + "px)";
+
+        }
+
+        function smallNext(id) {
+
+            var track = document.getElementById(id);
+
+            var carousel = track.closest(".small-carousel");
+
+            var cards = track.querySelectorAll(".small-card");
+
+            var cardWidth = cards[0].offsetWidth;
+
+            var gap = 20;
+
+            var visible = Math.max(1,
+                Math.floor(
+                    (carousel.querySelector(".small-viewport").clientWidth + gap)
+                    / (cardWidth + gap)
+                )
+            );
+
+            var max = Math.max(0, cards.length - visible);
+
+            if(positions[id] === undefined) {
+                positions[id] = 0;
+            }
+
+            positions[id]++;
+
+            if(positions[id] > max) {
+                positions[id] = 0;
+            }
+
+            smallShow(id);
+
+        }
+
+        function smallPrevious(id) {
+
+            var track = document.getElementById(id);
+
+            var carousel = track.closest(".small-carousel");
+
+            var cards = track.querySelectorAll(".small-card");
+
+            var cardWidth = cards[0].offsetWidth;
+
+            var gap = 20;
+
+            var visible = Math.max(1,
+                Math.floor(
+                    (carousel.querySelector(".small-viewport").clientWidth + gap)
+                    / (cardWidth + gap)
+                )
+            );
+
+            var max = Math.max(0, cards.length - visible);
+
+            if(positions[id] === undefined) {
+                positions[id] = 0;
+            }
+
+            positions[id]--;
+
+            if(positions[id] < 0) {
+                positions[id] = max;
+            }
+
+            smallShow(id);
+
+        }
+
+        window.addEventListener("resize", function() {
+
+            document.querySelectorAll(".small-track").forEach(function(track) {
+                smallShow(track.id);
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
